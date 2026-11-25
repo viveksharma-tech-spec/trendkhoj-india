@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrendKhoj India | Aaj India Mein Kya Trending Hai? — Trending Topics Discovery</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Discover what India is searching for right now. TrendKhoj India is an independent discovery platform inspired by Google Trends, offering verified category filters, editorial outlines in Hindi & English, and CSV/RSS import tools.">
+  <meta name="keywords" content="India trends, trending topics India, Google Trends India, Aaj India Mein Kya Trending Hai, Cricket trends, Sarkari naukri trends, UPSC trends, Tech India trends, Hindi article outline generator">
+  <meta name="author" content="TrendKhoj India">
+  <meta name="robots" content="index, follow">
+
+  <!-- OpenGraph Social Tags -->
+  <meta property="og:title" content="TrendKhoj India — Aaj India Mein Kya Trending Hai?">
+  <meta property="og:description" content="India-focused trending topics discovery platform. Search interests, editorial outlines, and transparent data exploration.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/favicon.svg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =======================================================================
+       1. TOP NAVBAR
+       ======================================================================= -->
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="nav-container">
+      
+      <!-- Brand Logo & Identity -->
+      <a href="index.html" class="brand-wrapper" title="TrendKhoj India Homepage">
+        <img src="assets/images/favicon.svg" alt="TrendKhoj India Emblem" class="brand-logo-svg">
+        <div class="brand-text">
+          <div class="brand-title">
+            TrendKhoj <span class="badge-country">India</span>
+          </div>
+          <span class="brand-subtitle">Discovery • Search Insights • Editorial Tools</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <ul class="nav-links" id="nav-links-menu">
+        <li><a href="index.html" class="nav-link active">🔥 Dashboard</a></li>
+        <li><a href="javascript:void(0)" id="nav-favorites-btn" class="nav-link">⭐ Saved <span id="nav-fav-count" class="cat-count" style="display:none;">0</span></a></li>
+        <li><a href="javascript:void(0)" id="nav-import-csv-btn" class="nav-link">📥 Import CSV</a></li>
+        <li><a href="javascript:void(0)" id="nav-import-rss-btn" class="nav-link">📡 Import RSS</a></li>
+        <li><a href="about.html" class="nav-link">ℹ️ About</a></li>
+        <li><a href="contact.html" class="nav-link">✉️ Contact</a></li>
+      </ul>
+
+      <!-- Navbar Action: Link to Official Google Trends -->
+      <div class="nav-actions">
+        <a href="https://trends.google.com/trending?geo=IN" target="_blank" rel="noopener noreferrer" class="btn-nav-outline" title="View live Google Trends Trending Now in India">
+          Google Trends Live ↗
+        </a>
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          ☰
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- =======================================================================
+       2. HERO HEADER & SEARCH
+       ======================================================================= -->
+  <header class="hero-section">
+    <div class="hero-container">
+      
+      <div class="hero-badge-tag">
+        🇮🇳 India Trend Discovery Radar
+      </div>
+
+      <h1 class="hero-title">
+        Aaj India Mein Kya Trending Hai?
+      </h1>
+      
+      <p class="hero-subtitle">
+        Explore nationwide search interests, news drivers, and public curiosity. Filter by category, generate ready-to-use bilingual editorial outlines in Hindi and English, or load your own custom datasets.
+      </p>
+
+      <!-- Topic Search Bar -->
+      <div class="search-wrapper">
+        <div class="search-input-group">
+          <span class="search-icon-inside" aria-hidden="true">🔍</span>
+          <input 
+            type="text" 
+            id="search-topics-input" 
+            class="search-input" 
+            placeholder="Search topics by keyword (e.g., Cricket squad, UPSC, Tata EV, PM Scheme)..." 
+            autocomplete="off"
+            aria-label="Search trending topics"
+          >
+          <button type="button" id="search-clear-btn" class="search-clear-btn" title="Clear search query" aria-label="Clear search input">
+            ✕
+          </button>
+        </div>
+
+        <!-- Search History Pills -->
+        <div class="search-history-container">
+          <div id="search-history-chips"></div>
+          <button type="button" id="btn-clear-history" class="btn-clear-history" style="display:none;">Clear history</button>
+        </div>
+      </div>
+
+      <!-- Data Status & Authenticity Banner -->
+      <div class="data-status-banner">
+        <div class="status-info-cluster">
+          <span id="data-origin-badge" class="dataset-pill demo">
+            ⚠️ DEMO DATASET (Illustrative Only)
+          </span>
+          <div id="data-timestamp-info" class="status-timestamp">
+            <!-- Populated via app.js -->
+          </div>
+          <span class="status-disclaimer-snippet">
+            ⚖️ Search trends reflect curiosity, not verified factual claims.
+          </span>
+        </div>
+
+        <div class="status-actions">
+          <button type="button" id="btn-reset-demo-dataset" class="btn-sm-action" style="display:none;" title="Restore original demo dataset">
+            🔄 Revert to Demo Data
+          </button>
+          <a href="https://trends.google.com/trending?geo=IN" target="_blank" rel="noopener noreferrer" class="btn-sm-action" title="Check official Google Trends page">
+            Official Google Trends India ↗
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- =======================================================================
+       2.5 CATEGORY SPOTLIGHT SHOWCASE (Cricket & Education)
+       ======================================================================= -->
+  <section class="category-spotlight-section" aria-label="Featured Category Spotlights">
+    <div class="spotlight-header">
+      <div class="spotlight-title-group">
+        <h2 class="spotlight-section-heading">
+          <span>⚡ High-Velocity Category Spotlights</span>
+        </h2>
+        <p class="spotlight-section-sub">
+          Explore today's most queried search drivers across Indian sports tournaments and academic milestones
+        </p>
+      </div>
+    </div>
+
+    <div class="category-spotlight-grid">
+      
+      <!-- Cricket Category Card -->
+      <article class="category-spotlight-card" data-spotlight-cat="Cricket">
+        <div class="spotlight-img-wrap">
+          <img 
+            src="assets/images/cricket-category.jpg" 
+            alt="Crowded Indian cricket stadium under bright floodlights with players in action on the pitch" 
+            class="spotlight-img"
+            loading="lazy"
+            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=800&q=80';"
+          >
+          <div class="spotlight-gradient-overlay" aria-hidden="true"></div>
+        </div>
+        <div class="spotlight-content">
+          <span class="spotlight-badge cricket-badge">🏏 Cricket Radar</span>
+          <h3 class="spotlight-card-title">Cricket in India</h3>
+          <p class="spotlight-card-desc">
+            Track nationwide search surges for Test squads, BCCI press releases, Border-Gavaskar Trophy fixtures, and Ranji Trophy domestic records.
+          </p>
+          <button type="button" class="btn-spotlight-action" data-filter-category="Cricket" aria-label="Filter dashboard to view all Cricket topics">
+            <span>View Cricket Topics</span>
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Education Category Card -->
+      <article class="category-spotlight-card" data-spotlight-cat="Education">
+        <div class="spotlight-img-wrap">
+          <img 
+            src="assets/images/education-category.jpg" 
+            alt="Indian university students studying with textbooks, notebooks, and laptops in a bright modern library" 
+            class="spotlight-img"
+            loading="lazy"
+            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80';"
+          >
+          <div class="spotlight-gradient-overlay" aria-hidden="true"></div>
+        </div>
+        <div class="spotlight-content">
+          <span class="spotlight-badge education-badge">📚 Academic & Exams</span>
+          <h3 class="spotlight-card-title">Education & Exams</h3>
+          <p class="spotlight-card-desc">
+            Direct access to official announcements for UPSC CSE syllabus, CBSE Board timetables, admit card download portals, and university admissions.
+          </p>
+          <button type="button" class="btn-spotlight-action" data-filter-category="Education" aria-label="Filter dashboard to view all Education topics">
+            <span>View Education Topics</span>
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       3. CONTROLS BAR (CATEGORIES, TIME, SORT, VIEW)
+       ======================================================================= -->
+  <section class="controls-section" aria-label="Filter and Sort Controls">
+    <div class="controls-cluster">
+      
+      <!-- Category Filter Pills -->
+      <div class="categories-scroll" id="categories-container" role="tablist" aria-label="Topic Categories">
+        <button type="button" class="cat-btn active" data-cat="All" role="tab" aria-selected="true">
+          All Topics <span class="cat-count" data-cat-badge="All">0</span>
+        </button>
+        <button type="button" class="cat-btn" data-cat="Cricket" role="tab" aria-selected="false">
+          🏏 Cricket <span class="cat-count" data-cat-badge="Cricket">0</span>
+        </button>
+        <button type="button" class="cat-btn" data-cat="Education" role="tab" aria-selected="false">
+          📚 Education <span class="cat-count" data-cat-badge="Education">0</span>
+        </button>
+        <button type="button" class="cat-btn" data-cat="Jobs" role="tab" aria-selected="false">
+          💼 Jobs <span class="cat-count" data-cat-badge="Jobs">0</span>
+        </button>
+        <button type="button" class="cat-btn" data-cat="Technology" role="tab" aria-selected="false">
+          💻 Technology <span class="cat-count" data-cat-badge="Technology">0</span>
+        </button>
+        <button type="button" class="cat-btn" data-cat="Entertainment" role="tab" aria-selected="false">
+          🎬 Entertainment <span class="cat-count" data-cat-badge="Entertainment">0</span>
+        </button>
+        <button type="button" class="cat-btn" data-cat="Automobile" role="tab" aria-selected="false">
+          🚗 Automobile <span class="cat-count" data-cat-badge="Automobile">0</span>
+        </button>
+        <button type="button" class="cat-btn" data-cat="Government" role="tab" aria-selected="false">
+          🏛 Government <span class="cat-count" data-cat-badge="Government">0</span>
+        </button>
+      </div>
+
+      <!-- Secondary Controls: Time Range, Sorting, Export, View Toggle -->
+      <div class="secondary-filters-bar">
+        
+        <!-- Time Window Filter -->
+        <div class="time-filters-group" role="group" aria-label="Time Filter Window">
+          <button type="button" class="time-btn" data-time-filter="4h">4 Hours</button>
+          <button type="button" class="time-btn" data-time-filter="24h">24 Hours</button>
+          <button type="button" class="time-btn" data-time-filter="48h">48 Hours</button>
+          <button type="button" class="time-btn" data-time-filter="7d">7 Days</button>
+          <button type="button" class="time-btn active" data-time-filter="all">All Time</button>
+        </div>
+
+        <!-- Sort, Export, and View Mode Group -->
+        <div class="sort-and-view-group">
+          
+          <!-- Sort Dropdown -->
+          <div class="sort-select-wrapper">
+            <label for="sort-select">Sort by:</label>
+            <select id="sort-select" class="select-control">
+              <option value="volume-desc">Highest Search Volume</option>
+              <option value="volume-asc">Lowest Search Volume</option>
+              <option value="recent">Most Recently Updated</option>
+              <option value="title-asc">Topic Title (A to Z)</option>
+              <option value="title-desc">Topic Title (Z to A)</option>
+            </select>
+          </div>
+
+          <!-- Export CSV Button -->
+          <button type="button" id="btn-export-csv" class="btn-export" title="Export currently filtered topics as CSV file">
+            📥 Export CSV
+          </button>
+
+          <!-- Table / Card View Toggle -->
+          <div class="view-toggle-group" role="group" aria-label="View toggle">
+            <button type="button" id="view-mode-table" class="view-toggle-btn active" title="Desktop Table View" aria-label="Table view">
+              ☰ Table
+            </button>
+            <button type="button" id="view-mode-cards" class="view-toggle-btn" title="Card Grid View" aria-label="Card view">
+              ☷ Cards
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       4. TOPIC DASHBOARD
+       ======================================================================= -->
+  <main class="dashboard-main">
+    
+    <!-- Desktop Responsive Table View -->
+    <div id="table-view-container" class="table-responsive-container">
+      <table class="trend-table">
+        <thead>
+          <tr>
+            <th class="col-rank">#</th>
+            <th class="col-topic">Trending Topic Title</th>
+            <th class="col-category">Category</th>
+            <th class="col-volume">Search Volume</th>
+            <th class="col-status">Status</th>
+            <th class="col-source">Source Reference</th>
+            <th class="col-time">Last Update</th>
+            <th class="col-actions">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="trend-table-tbody">
+          <!-- Populated dynamically via JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mobile-First / Alternative Card View -->
+    <div id="card-view-container" class="card-grid-container" style="display:none;">
+      <div id="trend-card-grid" class="card-grid-container">
+        <!-- Populated dynamically via JavaScript -->
+      </div>
+    </div>
+
+    <!-- Empty State (Shown when no topics match filters or search) -->
+    <div id="empty-state-view" class="empty-state-box" style="display:none;">
+      <div class="empty-state-icon">🔍</div>
+      <h3 class="empty-state-title">No Matching Topics Found</h3>
+      <p class="empty-state-text">
+        We couldn't find any topics matching your current search query or time filter. Try broadening your keywords, resetting category filters, or importing a custom CSV dataset.
+      </p>
+      <div style="display:flex; justify-content:center; gap:0.75rem;">
+        <button type="button" class="btn-nav-primary" onclick="document.getElementById('search-clear-btn').click();">
+          Reset Search Filter
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- =======================================================================
+       5. ADVERTISING PLACEHOLDER COMPONENT
+       ======================================================================= -->
+  <aside class="ad-placement-wrapper" aria-label="Sponsored Content Placement">
+    <div class="ad-container-slot" id="ad-banner-placement">
+      <span class="ad-label-badge">Advertisement Placement Slot</span>
+      <div class="ad-placeholder-text">
+        Premium Responsive Ad Slot (728x90 Leaderboard / Mobile Responsive)
+      </div>
+      <p class="ad-subtext">
+        Ready for integration with Google AdSense or an approved publisher network. No intrusive popups or tracking scripts enabled by default.
+      </p>
+    </div>
+  </aside>
+
+  <!-- =======================================================================
+       6. SITE FOOTER
+       ======================================================================= -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      
+      <div class="footer-top-grid">
+        
+        <!-- Column 1: Brand & Philosophy -->
+        <div>
+          <div class="brand-title">
+            TrendKhoj <span class="badge-country">India</span>
+          </div>
+          <p class="footer-brand-desc">
+            An independent Indian trends discovery platform designed for researchers, digital journalists, and curious citizens. Built with pure HTML/CSS/JS with zero tracking dependencies.
+          </p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-title">Platform</h4>
+          <ul class="footer-link-list">
+            <li><a href="index.html" class="footer-link">Dashboard</a></li>
+            <li><a href="javascript:void(0)" onclick="document.getElementById('nav-import-csv-btn').click()" class="footer-link">Import CSV Data</a></li>
+            <li><a href="javascript:void(0)" onclick="document.getElementById('nav-import-rss-btn').click()" class="footer-link">Import RSS Feeds</a></li>
+            <li><a href="sample-trends.csv" download class="footer-link">Download Sample CSV</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Institutional & Attribution -->
+        <div>
+          <h4 class="footer-col-title">Attribution & Source</h4>
+          <ul class="footer-link-list">
+            <li><a href="https://trends.google.com/trending?geo=IN" target="_blank" rel="noopener noreferrer" class="footer-link">Google Trends India ↗</a></li>
+            <li><a href="https://pib.gov.in" target="_blank" rel="noopener noreferrer" class="footer-link">Press Information Bureau ↗</a></li>
+            <li><a href="https://www.bcci.tv" target="_blank" rel="noopener noreferrer" class="footer-link">BCCI Official ↗</a></li>
+            <li><a href="https://upsc.gov.in" target="_blank" rel="noopener noreferrer" class="footer-link">UPSC Portal ↗</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Legal & Contact -->
+        <div>
+          <h4 class="footer-col-title">Transparency</h4>
+          <ul class="footer-link-list">
+            <li><a href="about.html" class="footer-link">About & Methodology</a></li>
+            <li><a href="privacy.html" class="footer-link">Privacy Policy</a></li>
+            <li><a href="contact.html" class="footer-link">Contact & Feedback</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Prominent Editorial Disclaimer -->
+      <div class="footer-disclaimer-box">
+        <strong>⚠️ Crucial Public & Editorial Disclaimer:</strong> TrendKhoj India tracks search curiosities and query momentum. High search interest is <em>not proof or validation</em> that a claim, rumor, viral forward, or news story is true. Journalists and content creators must always verify claims with official government gazettes, court orders, or institutional spokespersons before reporting.
+      </div>
+
+      <!-- Copyright & Bottom Links -->
+      <div class="footer-bottom-bar">
+        <div>
+          © 2026 TrendKhoj India. Original design & development. Google Trends is a trademark of Google LLC; TrendKhoj India is an independent platform and is not affiliated with Google.
+        </div>
+        <div style="display:flex; gap:1rem;">
+          <a href="privacy.html" class="footer-link">Privacy</a>
+          <a href="about.html" class="footer-link">About</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =======================================================================
+       7. TOPIC EXPLORER MODAL (Details, Outline, Headlines, Social Media)
+       ======================================================================= -->
+  <div id="modal-topic-explorer" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="explorer-topic-title">
+    <div class="modal-card">
+      
+      <div class="modal-header">
+        <div class="modal-header-title">
+          <span>🔎 Topic Explorer:</span>
+          <span id="explorer-cat-tag" class="cat-tag general">General</span>
+        </div>
+        <button type="button" class="modal-close-btn" title="Close dialog" aria-label="Close dialog">✕</button>
+      </div>
+
+      <div class="modal-body">
+        
+        <!-- Category Banner (for Cricket & Education) -->
+        <div id="explorer-image-banner-container" style="display:none;"></div>
+
+        <!-- Hero Details Box -->
+        <div class="explorer-hero-box">
+          <h2 id="explorer-topic-title" style="font-size:1.35rem; font-weight:800; color:var(--text-dark); margin-bottom:0.5rem; line-height:1.3;">
+            Topic Title
+          </h2>
+          
+          <div class="explorer-meta-grid">
+            <div class="meta-item-box">
+              <span class="meta-item-label">Search Volume</span>
+              <span id="explorer-volume-val" class="meta-item-value">500K+ searches</span>
+            </div>
+            <div class="meta-item-box">
+              <span class="meta-item-label">Source Status</span>
+              <span id="explorer-status-val" class="meta-item-value">Active</span>
+            </div>
+            <div class="meta-item-box">
+              <span class="meta-item-label">Reported Timestamp</span>
+              <span id="explorer-time-val" class="meta-item-value">Oct 25, 2026</span>
+            </div>
+            <div class="meta-item-box">
+              <span class="meta-item-label">Dataset Origin</span>
+              <span id="explorer-origin-val" class="meta-item-value">Demo Data</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fact-Check Advisory Alert -->
+        <div class="disclaimer-alert-box">
+          <span style="font-size:1.2rem;">⚖️</span>
+          <div>
+            <strong>Fact-Check Advisory:</strong> High search queries represent public interest, not verified facts. Never publish viral speculation without corroborating with the primary official source.
+          </div>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="tabs-nav" role="tablist">
+          <button type="button" class="tab-btn active" data-tab-target="tab-outline" role="tab">
+            📝 Article Outline
+          </button>
+          <button type="button" class="tab-btn" data-tab-target="tab-social" role="tab">
+            📢 Headlines & Social Copy
+          </button>
+          <button type="button" class="tab-btn" data-tab-target="tab-sources" role="tab">
+            🏛 Official Verification Links
+          </button>
+        </div>
+
+        <!-- Tab 1: Editable Article Outline -->
+        <div id="tab-outline" class="tab-pane active" role="tabpanel">
+          <div class="outline-editor-toolbar">
+            <div style="display:flex; align-items:center; gap:0.5rem;">
+              <label for="outline-lang-select" style="font-size:0.8rem; font-weight:600;">Outline Language:</label>
+              <select id="outline-lang-select" class="select-control">
+                <option value="en">English (Default)</option>
+                <option value="hi">हिंदी (Hindi Article)</option>
+                <option value="hinglish">Hinglish (Digital Blog)</option>
+              </select>
+            </div>
+            <div style="display:flex; gap:0.4rem;">
+              <button type="button" id="btn-save-custom-outline" class="btn-sm-action" title="Save your edited notes in localStorage">
+                💾 Save Notes
+              </button>
+              <button type="button" id="btn-copy-outline" class="btn-sm-action" style="background:#EFF6FF; color:var(--primary); border-color:var(--primary-border);">
+                📋 Copy Outline
+              </button>
+            </div>
+          </div>
+
+          <textarea id="explorer-outline-textarea" class="outline-textarea" spellcheck="false" placeholder="Generating outline..."></textarea>
+          <p style="font-size:0.75rem; color:var(--text-muted); margin-top:0.35rem;">
+            ✏️ You can edit, customize, or add your notes directly in the box above. Click <strong>Save Notes</strong> to keep your changes stored on this device.
+          </p>
+        </div>
+
+        <!-- Tab 2: Headlines & Social Media Captions -->
+        <div id="tab-social" class="tab-pane" role="tabpanel">
+          <div style="margin-bottom:1.25rem;">
+            <h4 style="font-size:0.9rem; font-weight:700; color:var(--text-dark); margin-bottom:0.75rem;">
+              Suggested Headlines (Bilingual News & Explainers)
+            </h4>
+            <div id="explorer-headlines-container">
+              <!-- Populated via templates.js -->
+            </div>
+          </div>
+
+          <div>
+            <h4 style="font-size:0.9rem; font-weight:700; color:var(--text-dark); margin-bottom:0.75rem;">
+              Social Media & Messaging Snippets
+            </h4>
+            <div id="explorer-social-container">
+              <!-- Populated via templates.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Official Verification & Deep Dives -->
+        <div id="tab-sources" class="tab-pane" role="tabpanel">
+          <p style="font-size:0.875rem; color:var(--text-body); margin-bottom:1.25rem;">
+            Verify facts directly using official channels, verified news publishers, or Google Trends analytics:
+          </p>
+
+          <div style="display:flex; flex-direction:column; gap:0.75rem;">
+            <a id="explorer-source-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-nav-outline" style="justify-content:space-between;">
+              <span>🏛 Primary Official Portal / Authority</span>
+              <span>Open ↗</span>
+            </a>
+            <a id="explorer-google-trends-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn-nav-outline" style="justify-content:space-between;">
+              <span>📈 View Topic on Google Trends Explore (India)</span>
+              <span>Open ↗</span>
+            </a>
+            <a id="explorer-google-news-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn-nav-outline" style="justify-content:space-between;">
+              <span>📰 Search Topic on Google News India</span>
+              <span>Open ↗</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-nav-outline modal-close-btn">Close</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       8. CSV IMPORT & COLUMN MAPPING MODAL
+       ======================================================================= -->
+  <div id="modal-csv-import" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="csv-modal-heading">
+    <div class="modal-card">
+      
+      <div class="modal-header">
+        <div class="modal-header-title">
+          <span id="csv-modal-heading">📥 Import CSV Dataset</span>
+        </div>
+        <button type="button" class="modal-close-btn" title="Close dialog" aria-label="Close dialog">✕</button>
+      </div>
+
+      <div class="modal-body">
+        
+        <!-- Step 1: Upload File -->
+        <div id="csv-step-upload">
+          <div class="import-dropzone" id="csv-dropzone">
+            <div class="dropzone-icon">📄</div>
+            <h3 style="font-size:1.1rem; font-weight:700; color:var(--text-dark); margin-bottom:0.25rem;">
+              Click to select or drag & drop a .CSV file
+            </h3>
+            <p style="font-size:0.825rem; color:var(--text-muted); margin-bottom:1rem;">
+              Supports any standard CSV file with custom columns. You can map columns in the next step.
+            </p>
+            <input type="file" id="csv-file-input" accept=".csv,text/csv" style="display:none;">
+            <button type="button" class="btn-nav-primary" style="margin: 0 auto;">
+              Browse CSV File
+            </button>
+          </div>
+
+          <div style="background:var(--bg-subtle); padding:1rem; border-radius:var(--radius-md); font-size:0.8rem; color:var(--text-body);">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <strong>Need a test format?</strong> Download our verified India trends sample file.
+              </div>
+              <button type="button" id="btn-download-sample-csv" class="btn-sm-action">
+                ⬇️ Download sample-trends.csv
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Column Mapping & Validation -->
+        <div id="csv-step-mapping" style="display:none;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+            <div>
+              <strong id="csv-filename-display" style="color:var(--text-dark);">file.csv</strong>
+              <span id="csv-rowcount-display" class="cat-count" style="margin-left:0.5rem;">0 rows</span>
+            </div>
+            <button type="button" class="btn-sm-action" onclick="document.getElementById('csv-step-upload').style.display='block'; document.getElementById('csv-step-mapping').style.display='none';">
+              ← Choose another file
+            </button>
+          </div>
+
+          <p style="font-size:0.825rem; color:var(--text-muted); margin-bottom:1rem;">
+            We have auto-detected column matches below. Confirm or adjust the column assignments before importing:
+          </p>
+
+          <table class="mapping-table">
+            <thead>
+              <tr>
+                <th>TrendKhoj Field</th>
+                <th>Requirement</th>
+                <th>Map to CSV Column</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Topic Title</strong></td>
+                <td><span style="color:#DC2626; font-size:0.75rem; font-weight:700;">Required</span></td>
+                <td><select id="map-col-title" class="select-control" style="width:100%;"></select></td>
+              </tr>
+              <tr>
+                <td>Category</td>
+                <td><span class="text-muted" style="font-size:0.75rem;">Optional</span></td>
+                <td><select id="map-col-cat" class="select-control" style="width:100%;"></select></td>
+              </tr>
+              <tr>
+                <td>Search Volume</td>
+                <td><span class="text-muted" style="font-size:0.75rem;">Optional</span></td>
+                <td><select id="map-col-vol" class="select-control" style="width:100%;"></select></td>
+              </tr>
+              <tr>
+                <td>Source Name</td>
+                <td><span class="text-muted" style="font-size:0.75rem;">Optional</span></td>
+                <td><select id="map-col-source-name" class="select-control" style="width:100%;"></select></td>
+              </tr>
+              <tr>
+                <td>Source URL</td>
+                <td><span class="text-muted" style="font-size:0.75rem;">Optional</span></td>
+                <td><select id="map-col-source-url" class="select-control" style="width:100%;"></select></td>
+              </tr>
+              <tr>
+                <td>Timestamp / Date</td>
+                <td><span class="text-muted" style="font-size:0.75rem;">Optional</span></td>
+                <td><select id="map-col-time" class="select-control" style="width:100%;"></select></td>
+              </tr>
+              <tr>
+                <td>Status (Active/Ended)</td>
+                <td><span class="text-muted" style="font-size:0.75rem;">Optional</span></td>
+                <td><select id="map-col-status" class="select-control" style="width:100%;"></select></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="margin-top:1.25rem;">
+            <button type="button" id="btn-apply-csv-import" class="btn-nav-primary" style="width:100%; justify-content:center; padding:0.75rem;">
+              ✓ Validate & Import Dataset Now
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-nav-outline modal-close-btn">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       9. RSS / ATOM IMPORT MODAL
+       ======================================================================= -->
+  <div id="modal-rss-import" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="rss-modal-heading">
+    <div class="modal-card">
+      
+      <div class="modal-header">
+        <div class="modal-header-title">
+          <span id="rss-modal-heading">📡 Import RSS / Atom Feed</span>
+        </div>
+        <button type="button" class="modal-close-btn" title="Close dialog" aria-label="Close dialog">✕</button>
+      </div>
+
+      <div class="modal-body">
+        
+        <!-- Explanation of CORS Limitations -->
+        <div class="disclaimer-alert-box" style="background:#EFF6FF; border-color:#BFDBFE; color:#1E40AF; margin-bottom:1rem;">
+          <span style="font-size:1.2rem;">ℹ️</span>
+          <div>
+            <strong>Browser CORS Transparency Notice:</strong> Modern web browsers enforce CORS (Cross-Origin Resource Sharing). Direct browser requests to external feeds (like Google Trends RSS) will be blocked unless fetched via an open CORS proxy or pasted manually. We provide both options below.
+          </div>
+        </div>
+
+        <div class="tabs-nav" role="tablist">
+          <button type="button" class="tab-btn active" data-tab-target="tab-rss-url" role="tab">
+            🌐 Fetch via URL & Proxy
+          </button>
+          <button type="button" class="tab-btn" data-tab-target="tab-rss-manual" role="tab">
+            📋 Safe Manual XML Paste (100% Reliable)
+          </button>
+        </div>
+
+        <!-- Tab 1: URL + Proxy Fetch -->
+        <div id="tab-rss-url" class="tab-pane active" role="tabpanel">
+          <div class="form-group">
+            <label for="rss-feed-url" class="form-label">RSS / Atom Feed URL:</label>
+            <input 
+              type="url" 
+              id="rss-feed-url" 
+              class="form-input" 
+              placeholder="e.g. https://trends.google.com/trending/rss?geo=IN"
+              value="https://trends.google.com/trending/rss?geo=IN"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="rss-proxy-select" class="form-label">CORS Proxy Provider:</label>
+            <select id="rss-proxy-select" class="select-control" style="width:100%;">
+              <option value="allorigins">AllOrigins Public Proxy (Recommended)</option>
+              <option value="corsproxy_io">CorsProxy.io Public Proxy</option>
+            </select>
+          </div>
+
+          <div id="rss-fetch-status" style="display:none; font-size:0.85rem; padding:0.5rem; margin-bottom:1rem; border-radius:var(--radius-sm); background:var(--bg-subtle);"></div>
+
+          <button type="button" id="btn-fetch-rss" class="btn-nav-primary" style="width:100%; justify-content:center; padding:0.75rem;">
+            📡 Fetch & Import Live Feed
+          </button>
+        </div>
+
+        <!-- Tab 2: Safe Manual XML Paste -->
+        <div id="tab-rss-manual" class="tab-pane" role="tabpanel">
+          <p style="font-size:0.825rem; color:var(--text-muted); margin-bottom:0.75rem;">
+            If network proxies are blocked or down, open the feed link (e.g. <a href="https://trends.google.com/trending/rss?geo=IN" target="_blank" rel="noopener noreferrer">Google Trends India RSS ↗</a>) in a new browser tab, press <kbd>Ctrl+A</kbd> then <kbd>Ctrl+C</kbd>, and paste the raw XML code here:
+          </p>
+
+          <div class="form-group">
+            <label for="rss-manual-textarea" class="form-label">Paste Raw RSS / Atom XML:</label>
+            <textarea id="rss-manual-textarea" class="form-textarea" rows="8" placeholder="<rss version=&quot;2.0&quot;><channel><item><title>...</title>..."></textarea>
+          </div>
+
+          <button type="button" id="btn-parse-manual-xml" class="btn-nav-primary" style="width:100%; justify-content:center; padding:0.75rem;">
+            ✓ Parse & Load Pasted XML Topics
+          </button>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-nav-outline modal-close-btn">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       10. TOAST NOTIFICATION CONTAINER
+       ======================================================================= -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- =======================================================================
+       11. JAVASCRIPT APPLICATION SCRIPT
+       ======================================================================= -->
+  <script src="script.js"></script>
+
+</body>
+</html>

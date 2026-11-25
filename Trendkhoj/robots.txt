@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://trendkhoj-india.netlify.app/sitemap.xml

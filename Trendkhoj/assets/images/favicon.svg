@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A8A"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="tricolor" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF9933"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#138808"/>
+    </linearGradient>
+  </defs>
+  <!-- Background rounded squircle -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#bg-grad)" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.2))"/>
+  <!-- Discovery Radar / Compass Rings -->
+  <circle cx="32" cy="32" r="22" fill="none" stroke="#60A5FA" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6"/>
+  <circle cx="32" cy="32" r="14" fill="none" stroke="#93C5FD" stroke-width="1.5" opacity="0.4"/>
+  <!-- Trend Arrow Dynamic upward curve -->
+  <path d="M 18 42 L 28 32 L 36 38 L 46 22" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Arrow Head -->
+  <polygon points="46,22 38,23 44,29" fill="#FFFFFF"/>
+  <!-- Pulse Dot (Saffron accent) -->
+  <circle cx="46" cy="22" r="3.5" fill="#FF9933"/>
+</svg>

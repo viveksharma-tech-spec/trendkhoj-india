@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Feedback | TrendKhoj India</title>
+  
+  <meta name="description" content="Get in touch with the TrendKhoj India team for editorial corrections, dataset suggestions, technical feedback, or general inquiries.">
+  <meta name="author" content="TrendKhoj India">
+  
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 2rem;
+      max-width: 1080px;
+      margin: 2.5rem auto 4rem;
+      padding: 0 1.25rem;
+    }
+    .form-card, .faq-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .form-card h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .faq-item {
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .faq-q {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.35rem;
+    }
+    .faq-a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="nav-container">
+      <a href="index.html" class="brand-wrapper">
+        <img src="assets/images/favicon.svg" alt="TrendKhoj India Emblem" class="brand-logo-svg">
+        <div class="brand-text">
+          <div class="brand-title">
+            TrendKhoj <span class="badge-country">India</span>
+          </div>
+          <span class="brand-subtitle">Discovery • Search Insights • Editorial Tools</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="nav-links-menu">
+        <li><a href="index.html" class="nav-link">🔥 Dashboard</a></li>
+        <li><a href="about.html" class="nav-link">ℹ️ About</a></li>
+        <li><a href="privacy.html" class="nav-link">🔒 Privacy</a></li>
+        <li><a href="contact.html" class="nav-link active">✉️ Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="index.html" class="btn-nav-primary">Open Dashboard ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTACT & FAQ CONTAINER -->
+  <div class="contact-grid">
+    
+    <!-- Contact Form -->
+    <div class="form-card">
+      <span class="badge-country" style="display:inline-block; margin-bottom:0.75rem;">Get In Touch</span>
+      <h1>Send Feedback & Corrections</h1>
+      <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:1.5rem;">
+        Have a feature suggestion, spotted an inaccurate dataset entry, or want to partner? Fill out the form below.
+      </p>
+
+      <form id="contact-form" onsubmit="handleContactSubmit(event)">
+        <div class="form-group">
+          <label for="contact-name" class="form-label">Your Name:</label>
+          <input type="text" id="contact-name" class="form-input" required placeholder="e.g. Rahul Verma">
+        </div>
+
+        <div class="form-group">
+          <label for="contact-email" class="form-label">Email Address:</label>
+          <input type="email" id="contact-email" class="form-input" required placeholder="name@domain.com">
+        </div>
+
+        <div class="form-group">
+          <label for="contact-category" class="form-label">Inquiry Type:</label>
+          <select id="contact-category" class="select-control" style="width:100%; padding:0.65rem;">
+            <option value="General Feedback">General Feedback & Ideas</option>
+            <option value="Dataset Correction">Dataset / Trend Correction</option>
+            <option value="Technical Issue">Technical Bug or Import Issue</option>
+            <option value="Editorial Inquiry">Editorial & Outline Tool Suggestion</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-message" class="form-label">Message:</label>
+          <textarea id="contact-message" class="form-textarea" rows="5" required placeholder="Please provide specific details or URLs..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-nav-primary" style="width:100%; justify-content:center; padding:0.75rem; font-size:0.95rem;">
+          ✉️ Send Message via Email
+        </button>
+      </form>
+
+      <div id="contact-status-box" style="display:none; margin-top:1rem; padding:0.75rem; border-radius:var(--radius-sm); font-size:0.85rem;"></div>
+    </div>
+
+    <!-- Frequently Asked Questions -->
+    <div class="faq-card">
+      <h2 style="font-size:1.25rem; font-weight:800; color:var(--text-dark); margin-bottom:1.25rem;">
+        Frequently Asked Questions
+      </h2>
+
+      <div class="faq-item">
+        <div class="faq-q">Where does TrendKhoj India get its initial data?</div>
+        <div class="faq-a">
+          Initially, TrendKhoj India displays an authentic, clearly labeled Demo Dataset representing realistic Indian search trends. It also empowers you to import any CSV or RSS feed directly.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Why does direct RSS URL fetching sometimes fail?</div>
+        <div class="faq-a">
+          Web browsers enforce CORS (Cross-Origin Resource Sharing) security. External servers often block direct browser XML reading. That is why we provide a 100% reliable <strong>Safe Manual XML Paste</strong> tab!
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I use the generated article outlines commercially?</div>
+        <div class="faq-a">
+          Yes! The outline templates and headlines are free to adapt, edit, and publish in your newsletters, blogs, and news stories. Just ensure you independently verify all factual claims.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Does TrendKhoj track my searches or favorites?</div>
+        <div class="faq-a">
+          Never. Your search history, favorites, custom datasets, and outline notes are stored 100% privately on your device via <code>localStorage</code>.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-bottom-bar" style="border-top:none; padding-top:0;">
+        <div>© 2026 TrendKhoj India. Independent discovery platform.</div>
+        <div style="display:flex; gap:1rem;">
+          <a href="index.html" class="footer-link">Dashboard</a>
+          <a href="about.html" class="footer-link">About</a>
+          <a href="privacy.html" class="footer-link">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const cat = document.getElementById('contact-category').value;
+      const message = document.getElementById('contact-message').value.trim();
+
+      const subject = encodeURIComponent(`[TrendKhoj India] ${cat} from ${name}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\n` +
+        `Email: ${email}\n` +
+        `Category: ${cat}\n\n` +
+        `Message:\n${message}\n\n` +
+        `Sent from TrendKhoj India web contact form.`
+      );
+
+      const statusBox = document.getElementById('contact-status-box');
+      statusBox.style.display = 'block';
+      statusBox.style.background = '#ECFDF5';
+      statusBox.style.color = '#065F46';
+      statusBox.style.border = '1px solid #A7F3D0';
+      statusBox.innerHTML = '✅ Launching your default email app to deliver this inquiry...';
+
+      // Open mailto link
+      window.location.href = `mailto:editor@trendkhoj-india.org?subject=${subject}&body=${body}`;
+    }
+  </script>
+
+</body>
+</html>

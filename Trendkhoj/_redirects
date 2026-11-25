@@ -1,0 +1,4 @@
+# TrendKhoj India - Netlify Redirects & Fallbacks
+# Existing static files (index.html, about.html, privacy.html, contact.html) are served directly.
+# 404 fallback gracefully routes back to index.html:
+/*    /index.html   404

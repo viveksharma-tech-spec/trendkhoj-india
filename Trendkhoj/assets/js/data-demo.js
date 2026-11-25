@@ -1,0 +1,215 @@
+/**
+ * TrendKhoj India - Demo Dataset
+ * 
+ * IMPORTANT TRANSPARENCY NOTICE:
+ * This dataset is provided strictly for demonstration, layout testing, and UI preview.
+ * These items are NOT live, real-time scraped queries. TrendKhoj India never presents
+ * demo datasets as live real-time feeds.
+ */
+
+window.TRENDKHOJ_DEMO_DATA = [
+  {
+    id: "demo-001",
+    title: "India vs Australia Border-Gavaskar Trophy Squad",
+    category: "Cricket",
+    sourceName: "BCCI Official Portal",
+    sourceUrl: "https://www.bcci.tv",
+    timestamp: "2026-10-25T07:15:00.000Z",
+    searchVolume: "500K+ searches",
+    status: "Active",
+    summary: "High interest surrounding the 18-member Indian Test squad announcement, injury updates on key pacers, and the opening combination.",
+    relatedKeywords: ["BCCI squad announcement", "India vs Aus test fixtures", "Rohit Sharma press conference", "Jasprit Bumrah fitness"],
+    imageUrl: "assets/images/cricket-category.jpg",
+    imageAlt: "Indian cricket stadium packed under floodlights with players in action",
+    isDemo: true,
+    dataOrigin: "Demo Dataset (Illustrative)"
+  },
+  {
+    id: "demo-002",
+    title: "UPSC Civil Services Prelims 2026 Notification",
+    category: "Education",
+    sourceName: "Union Public Service Commission",
+    sourceUrl: "https://upsc.gov.in",
+    timestamp: "2026-10-25T05:30:00.000Z",
+    searchVolume: "250K+ searches",
+    status: "Active",
+    summary: "Aspirants searching for syllabus updates, vacancy counts, eligibility criteria, and the deadline for online One-Time Registration (OTR).",
+    relatedKeywords: ["UPSC CSE 2026 syllabus PDF", "UPSC vacancy count", "OTR portal link", "Age limit relaxations"],
+    imageUrl: "assets/images/education-category.jpg",
+    imageAlt: "Indian university students studying with textbooks and laptops",
+    isDemo: true,
+    dataOrigin: "Demo Dataset (Illustrative)"
+  },
+  {
+    id: "demo-003",
+    title: "SSC CGL Tier 1 Result & Cut-off Marks",
+    category: "Jobs",
+    sourceName: "Staff Selection Commission",
+    sourceUrl: "https://ssc.gov.in",
+    timestamp: "2026-10-24T18:45:00.000Z",
+    searchVolume: "400K+ searches",
+    status: "Active",
+    summary: "Massive search spikes across northern and eastern states as candidates check normalized marks, regional merit lists, and Tier 2 exam schedules.",
+    relatedKeywords: ["SSC CGL 2026 merit list", "Category-wise cut off marks", "Tier 2 exam dates", "SSC login credentials"],
+    isDemo: true,
+    dataOrigin: "Demo Dataset (Illustrative)"
+  },
+  {
+    id: "demo-004",
+    title: "ISRO Gaganyaan Crew Module Sea Recovery Trials",
+    category: "Technology",
+    sourceName: "ISRO Official Press",
+    sourceUrl: "https://www.isro.gov.in",
+    timestamp: "2026-10-25T04:00:00.000Z",
+    searchVolume: "150K+ searches",
+    status: "Active",
+    summary: "Indian Navy and ISRO complete joint simulation trials in the Bay of Bengal for crew module recovery ahead of unmanned orbital orbital test flight.",
+    relatedKeywords: ["Gaganyaan launch date", "ISRO astronaut training", "Bay of Bengal recovery trials", "Vyommitra humanoid robot"],
+    isDemo: true,
+    dataOrigin: "Demo Dataset (Illustrative)"
+  },
+  {
+    id: "demo-005",
+    title: "Tata Sierra EV Production Design Unveiled",
+    category: "Automobile",
+    sourceName: "Tata Motors Commercial Release",
+    sourceUrl: "https://www.tatamotors.com",
+    timestamp: "2026-10-24T14:20:00.000Z",
+    searchVolume: "100K+ searches",
+    status: "Active",
+    summary: "Auto enthusiasts searching for battery range specifications, expected price range between ₹25-30 lakh, panoramic glass roof features, and booking timelines.",
+    relatedKeywords: ["Tata Sierra EV price India", "Battery range 500km", "Sierra booking date", "Auto Expo preview"],
+    isDemo: true,
+    dataOrigin: "Demo Dataset (Illustrative)"
+  },
+  {
+    id: "demo-006",
+    title: "PM E-DRIVE Scheme Subsidy Guidelines for 2-Wheelers",
+    category: "Government",
+    sourceName: "Ministry of Heavy Industries",
+    sourceUrl: "https://heavyindustries.gov.in",
+    timestamp: "2026-10-24T11:00:00.000Z",
+    searchVolume: "90K+ searches",
+    status: "Active",
+    summary: "Clarification issued regarding electric 2-wheeler and 3-wheeler subsidy vouchers via Aadhaar e-vouchers, succeeding the earlier FAME program.",
+    relatedKeywords: ["PM E-DRIVE portal login", "Electric scooter subsidy amount", "Aadhaar e-voucher download", "EV dealership guidelines"],
+    isDemo: true,
+    dataOrigin: "Demo Dataset (Illustrative)"
+  },
+  {
+    id: "demo-007",
+    title: "National Film Awards Winners List Announced",
+    category: "Entertainment",
+    sourceName: "Directorate of Film Festivals / PIB",
+    sourceUrl: "https://pib.gov.in",
+    timestamp: "2026-10-23T16:00:00.000Z",
+    searchVolume: "300K+ searches",
+    status: "Active",
+    summary: "Widespread search curiosity regarding Best Actor, Best Feature Film, regional cinema accolades, and jury special mentions.",
+    relatedKeywords: ["National Film Awards PDF list", "Best Actor winner", "Regional cinema awards", "Dadasaheb Phalke awardee"],
+    isDemo: true,
+    dataOrigin: "Demo Dataset (Illustrative)"
+  },
+  {
+    id: "demo-008",
+    title: "Ranji Trophy Round 3 Century Records",
+    category: "Cricket",
+    sourceName: "BCCI Domestic Matches",
+    sourceUrl: "https://www.bcci.tv",
+    timestamp: "2026-10-25T08:10:00.000Z",
+    searchVolume: "80K+ searches",
+    status: "Active",
+    summary: "Domestic cricket fans tracking state-level matches, young batters scoring consecutive tons, and spin bowling performance on turning tracks.",
+    relatedKeywords: ["Ranji Trophy live score", "Mumbai vs Karnataka", "Delhi cricket team updates", "Highest run scorer Ranji"],
+    imageUrl: "assets/images/cricket-category.jpg",
+    imageAlt: "Ranji Trophy match action and cricket pitch in India",
+    isDemo: true,
+    dataOrigin: "Demo Dataset (Illustrative)"
+  },
+  {
+    id: "demo-009",
+    title: "IBPS PO Mains Exam Admit Card Download Link",
+    category: "Jobs",
+    sourceName: "Institute of Banking Personnel Selection",
+    sourceUrl: "https://ibps.in",
+    timestamp: "2026-10-24T09:15:00.000Z",
+    searchVolume: "180K+ searches",
+    status: "Active",
+    summary: "Banking aspirants seeking direct download link, shift reporting timings, biometric verification instructions, and required photo ID documents.",
+    relatedKeywords: ["IBPS PO mains call letter", "IBPS login portal", "Mains exam shift timing", "Banking awareness preparation"],
+    isDemo: true,
+    dataOrigin: "Demo Dataset (Illustrative)"
+  },
+  {
+    id: "demo-010",
+    title: "OpenAI Operator & Autonomous Agent Updates",
+    category: "Technology",
+    sourceName: "Tech News Desk",
+    sourceUrl: "https://news.ycombinator.com",
+    timestamp: "2026-10-23T20:30:00.000Z",
+    searchVolume: null, // Test case: no volume supplied by source
+    status: null,       // Test case: status not supplied by source
+    summary: "Developers in Bengaluru, Hyderabad, and Pune analyzing new web browsing AI agents capable of executing multi-step browser workflows.",
+    relatedKeywords: ["AI autonomous agents", "Developer preview", "Python SDK integration", "Browser automation AI"],
+    isDemo: true,
+    dataOrigin: "Demo Dataset (Illustrative)"
+  },
+  {
+    id: "demo-011",
+    title: "Mahindra Thar Roxx 4x4 Delivery Timelines",
+    category: "Automobile",
+    sourceName: "Mahindra Auto News",
+    sourceUrl: "https://auto.mahindra.com",
+    timestamp: "2026-10-22T10:00:00.000Z",
+    searchVolume: "120K+ searches",
+    status: "Active",
+    summary: "Buyers tracking dealership waiting periods ranging from 3 to 9 months, customer delivery tracking numbers, and accessory packages.",
+    relatedKeywords: ["Thar Roxx waiting period", "Thar 5 door delivery status", "Mahindra booking status tracker", "Thar Roxx mileage test"],
+    isDemo: true,
+    dataOrigin: "Demo Dataset (Illustrative)"
+  },
+  {
+    id: "demo-012",
+    title: "Ayushman Bharat Senior Citizen (70+) Card Registration",
+    category: "Government",
+    sourceName: "National Health Authority",
+    sourceUrl: "https://beneficiary.nha.gov.in",
+    timestamp: "2026-10-25T06:00:00.000Z",
+    searchVolume: "350K+ searches",
+    status: "Active",
+    summary: "Huge spike in queries on Aadhaar e-KYC procedure, Ayushman Vay Vandana card issuance for seniors aged 70 and above, regardless of income.",
+    relatedKeywords: ["Ayushman card 70 plus registration", "PMJAY beneficiary portal", "Vay Vandana card download", "Empanelled hospitals list"],
+    isDemo: true,
+    dataOrigin: "Demo Dataset (Illustrative)"
+  },
+  {
+    id: "demo-013",
+    title: "CBSE Class 10 & 12 Board Exam 2026 Date Sheet",
+    category: "Education",
+    sourceName: "Central Board of Secondary Education",
+    sourceUrl: "https://cbse.gov.in",
+    timestamp: "2026-10-21T12:00:00.000Z",
+    searchVolume: "220K+ searches",
+    status: "Active",
+    summary: "Students and teachers looking for subject-wise exam timetables, practical examination guidelines, and official circulars on cbse.gov.in.",
+    relatedKeywords: ["CBSE date sheet 2026 PDF", "Class 10 exam schedule", "Class 12 practical dates", "CBSE roll number finder"],
+    imageUrl: "assets/images/education-category.jpg",
+    imageAlt: "Students reviewing board exam schedules with study notes",
+    isDemo: true,
+    dataOrigin: "Demo Dataset (Illustrative)"
+  },
+  {
+    id: "demo-014",
+    title: "Kantara Chapter 1 Teaser Release Date Announcement",
+    category: "Entertainment",
+    sourceName: "Hombale Films Official",
+    sourceUrl: "https://www.youtube.com",
+    timestamp: "2026-10-20T15:30:00.000Z",
+    searchVolume: "140K+ searches",
+    status: "Active",
+    summary: "Pan-India moviegoers searching for release date confirmation, teaser poster breakdown, cast additions, and multilingual dubbing details.",
+    relatedKeywords: ["Kantara 2 teaser", "Rishab Shetty interview", "Hombale films announcements", "Kantara release date 2026"],
+    isDemo: true,
+    dataOrigin: "Demo Dataset (Illustrative)"
+  }
+];
